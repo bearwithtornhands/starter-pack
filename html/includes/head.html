@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Primary Meta Tags -->
+  <title>Title</title>
+  <meta name="title" content="">
+  <meta name="description" content="">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="//test.ru/">
+  <meta property="og:title" content="Title">
+  <meta property="og:description" content="description">
+  <meta property="og:image"
+    content="//metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="//test.ru/">
+  <meta property="twitter:title" content="Title">
+  <meta property="twitter:description" content="Description">
+  <meta property="twitter:image"
+    content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+  <!-- Styles -->
+  <link rel="preload" as="style" media="all" onload="this.onload=null;this.rel='stylesheet'"
+    href="./assets/style.css" />
+
+  <link rel="preload" as="style" media="all" onload="this.onload=null;this.rel='stylesheet'"
+    href="https://unpkg.com/swiper/css/swiper.min.css" />
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" media="(min-width: 768px)"
+    href="./assets/style-min-width-768-px.css" />
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" media="(min-width: 1264px)"
+    href="./assets/style-min-width-1264-px.css" />
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+    media="(hover:hover), (min-width: 1264px)" href="./assets/style-hover-hover-min-width-1264.css" />
+
+  <noscript>
+    <link rel="stylesheet" media="all" href="./assets/style.css">
+    <link rel="stylesheet" media="(min-width: 768px)" href="./assets/style-min-width-768-px.css" />
+    <link rel="stylesheet" media="(min-width: 1264px)" href="./assets/style-min-width-1264-px.css" />
+    <link rel="stylesheet" media="(hover:hover), (min-width: 1264px)"
+      href="./assets/style-hover-hover-min-width-1264.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
+  </noscript>
+
+  <script id="loadcss">
+    (function (w) {
+      "use strict"; if (!w.loadCSS) { w.loadCSS = function () { } }
+      var rp = loadCSS.relpreload = {}; rp.support = (function () {
+        var ret; try { ret = w.document.createElement("link").relList.supports("preload") } catch (e) { ret = !1 }
+        return function () { return ret }
+      })(); rp.bindMediaToggle = function (link) {
+        var finalMedia = link.media || "all"; function enableStylesheet() {
+          if (link.addEventListener) { link.removeEventListener("load", enableStylesheet) } else if (link.attachEvent) { link.detachEvent("onload", enableStylesheet) }
+          link.setAttribute("onload", null); link.media = finalMedia
+        }
+        if (link.addEventListener) { link.addEventListener("load", enableStylesheet) } else if (link.attachEvent) { link.attachEvent("onload", enableStylesheet) }
+        setTimeout(function () { link.rel = "stylesheet"; link.media = "only x" }); setTimeout(enableStylesheet, 3000)
+      }; rp.poly = function () {
+        if (rp.support()) { return }
+        var links = w.document.getElementsByTagName("link"); for (var i = 0; i < links.length; i++) { var link = links[i]; if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) { link.setAttribute("data-loadcss", !0); rp.bindMediaToggle(link) } }
+      }; if (!rp.support()) { rp.poly(); var run = w.setInterval(rp.poly, 500); if (w.addEventListener) { w.addEventListener("load", function () { rp.poly(); w.clearInterval(run) }) } else if (w.attachEvent) { w.attachEvent("onload", function () { rp.poly(); w.clearInterval(run) }) } }
+      if (typeof exports !== "undefined") { exports.loadCSS = loadCSS }
+      else { w.loadCSS = loadCSS }
+    }(typeof global !== "undefined" ? global : this))
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Roboto';
+      src: url('./fonts/Roboto/Roboto-Light.ttf') format('opentype');
+      font-weight: 300;
+      font-weight: var(--light);
+      font-style: light;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      src: url('./fonts/Roboto/Roboto-Regular.ttf') format('opentype');
+      font-weight: 400;
+      font-weight: var(--normal);
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      src: url('./fonts/Roboto/Roboto-Bold.ttf') format('opentype');
+      font-weight: 700;
+      font-weight: var(--bold);
+      font-style: bold;
+      font-display: swap;
+    }
+  </style>
+</head>
+
+<body>

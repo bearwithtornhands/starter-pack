@@ -1,0 +1,79 @@
+.outer {
+	@util center-block;
+
+	box-sizing: content-box;
+	max-width: 1200px;
+	padding: 0 var(--global-gap-small);
+
+	@media (--tablet) {
+		padding: 0 var(--global-gap-medium);
+	}
+}
+
+.row {
+	margin: -40px calc(var(--column-gap) / (-2)) 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.col {
+	margin-top: 40px;
+
+	padding: 0 calc(var(--column-gap) / 2);
+}
+
+@each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+	.sm-$(i) {
+		width: calc($(i) * 8.3333333333%);
+	}
+}
+
+@media (--tablet) {
+	@each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+		.md-$(i) {
+			width: calc($(i) * 8.3333333333%);
+		}
+	}
+}
+
+@media (--desktop) {
+	@each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+		.lg-$(i) {
+			width: calc($(i) * 8.3333333333%);
+		}
+	}
+}
+
+.show-from-md {
+	display: none;
+
+	@media (--tablet) {
+		display: block;
+	}
+}
+
+.show-from-lg {
+	display: none;
+
+	@media (--desktop) {
+		display: block;
+	}
+}
+
+.hide-on-md {
+	@media (--tablet) {
+		display: none;
+	}
+
+	@media (--desktop) {
+		display: block;
+	}
+}
+
+.hide-on-lg {
+	@media (--desktop) {
+		display: none;
+	}
+}

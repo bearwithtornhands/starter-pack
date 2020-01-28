@@ -1,0 +1,48 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat/montserrat-regular.woff2') format('woff2'),
+		url('../fonts/Montserrat/montserrat-regular.woff') format('woff');
+	font-weight: 400;
+	font-weight: var(--normal);
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat/montserrat-medium.woff2') format('woff2'),
+		url('../fonts/Montserrat/montserrat-medium.woff') format('woff');
+	font-weight: 500;
+	font-weight: var(--medium);
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat/montserrat-semibold.woff2') format('woff2'),
+		url('../fonts/Montserrat/montserrat-semibold.woff') format('woff');
+	font-weight: 600;
+	font-weight: var(--semibold);
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat/montserrat-black.woff2') format('woff2'),
+		url('../fonts/Montserrat/montserrat-black.woff') format('woff');
+	font-weight: 900;
+	font-weight: var(--heavy);
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'iconfont';
+	src: url('../fonts/icons/iconfont.woff2') format('woff2'),
+		url('../fonts/icons/iconfont.woff') format('woff');
+	font-weight: 400;
+	font-weight: var(--normal);
+	font-style: normal;
+}

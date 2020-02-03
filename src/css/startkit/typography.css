@@ -1,0 +1,163 @@
+:root {
+	--secondaryFontStyle: {
+		font-size: 12px;
+		line-height: 24px;
+	}
+
+	--mediumFontStyle: {
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	--highFontStyle: {
+		font-size: 18px;
+		line-height: 34px;
+	}
+}
+
+html {
+	font: var(--normal) normal 14px/28px var(--defaultFont);
+	color: var(--primaryColor);
+	-webkit-font-smoothing: antialiased;
+}
+
+:--heading,
+p,
+ul,
+ol,
+figure,
+blockquote,
+audio {
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+h1 {
+	font-size: 2.4em;
+	line-height: 2.8em;
+	font-weight: var(--bold);
+}
+
+h2 {
+	font-size: 2.2em;
+	line-height: 2.6em;
+	font-weight: var(--bold);
+}
+
+h3 {
+	font-size: 2em;
+	line-height: 2.4em;
+	font-weight: var(--bold);
+}
+
+h4 {
+	font-size: 1.8em;
+	line-height: 2.2em;
+	font-weight: var(--bold);
+}
+
+h5 {
+	font-size: 1.6em;
+	line-height: 2em;
+	font-weight: var(--bold);
+}
+
+h6 {
+	font-size: 1.4em;
+	line-height: 1.8em;
+	font-weight: var(--bold);
+}
+
+:--heading {
+	span {
+		color: var(--additionalColor);
+	}
+}
+
+p {
+	& {
+		margin: 16px 0;
+	}
+
+	span {
+		color: var(--primaryColor50);
+	}
+
+	b {
+		font-weight: var(--medium);
+	}
+
+	& + ul,
+	& + ol {
+		margin-top: -12px;
+	}
+}
+
+ul,
+ol {
+	@util reset-list;
+	margin: 16px 0;
+}
+
+ul {
+	li {
+		margin: 0;
+
+		position: relative;
+		padding-left: 14px;
+
+		&:before {
+			content: '';
+
+			@util position(absolute, 14px null null 0);
+
+			display: block;
+			@util size(7px, 1px);
+			background-color: var(--accentColor);
+		}
+	}
+}
+
+ol {
+	counter-reset: counterOfNumberedList;
+
+	li {
+		margin: 0;
+
+		position: relative;
+		padding-left: 14px;
+		counter-increment: counterOfNumberedList;
+
+		&:before {
+			@util position(absolute, 0 auto auto 0);
+
+			content: counter(counterOfNumberedList);
+			color: var(--accentColor);
+		}
+	}
+}
+
+:--inline {
+	border-bottom: 1px solid var(--primaryColor);
+
+	color: currentColor;
+	text-decoration: none;
+
+	transition: color var(--defaultTransitionDuration),
+		border-color var(--defaultTransitionDuration),
+		background-color var(--defaultTransitionDuration);
+
+	&:hover {
+		@media (--hover) {
+			border-color: transparent;
+			color: var(--accentColor);
+
+			transition: none;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+@import 'helpers/vars';
+
+@import 'startkit/normilize';
+@import 'startkit/layout';
+@import 'startkit/resets';
+/* @import 'startkit/fonts'; */
+@import 'startkit/typography';
+@import 'startkit/iconfont';
+@import 'startkit/input';
+@import 'startkit/button';
+@import 'startkit/form';
+@import 'startkit/checkbox';
+@import 'startkit/radio';
+@import 'startkit/select';
+@import 'startkit/page';
+@import 'startkit/pageContent';

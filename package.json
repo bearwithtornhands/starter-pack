@@ -23,10 +23,6 @@
 		"css-mqpacker": "^7.0.0",
 		"cssnano": "^4.1.10",
 		"del": "^5.1.0",
-		"eslint": "^6.8.0",
-		"eslint-config-airbnb": "^18.0.1",
-		"eslint-config-airbnb-base": "^14.0.0",
-		"eslint-plugin-import": "^2.20.0",
 		"gulp": "^4.0.2",
 		"gulp-connect": "^5.7.0",
 		"gulp-consolidate": "^0.2.0",
@@ -62,7 +58,6 @@
 		"webpack-stream": "^5.2.1"
 	},
 	"dependencies": {
-		"jquery": "^3.4.1",
-		"swiper": "^5.0.3"
+		"jquery": "^3.4.1"
 	}
 }

@@ -1,0 +1,95 @@
+.radio {
+	& {
+		@apply --mediumFontStyle;
+	}
+
+	&__inner {
+		margin: 0;
+
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+
+	&__item {
+		position: relative;
+		padding: 0 16px;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+
+		&:before {
+			content: '';
+
+			@util position(absolute, auto 0 -1px);
+
+			display: block;
+			@util size(auto, 1px);
+			background-color: var(--additionalColor);
+		}
+
+		label,
+		span {
+			display: inline-block;
+		}
+
+		label {
+			& {
+				font-weight: var(--semibold);
+				text-decoration: none;
+
+				transition: color var(--defaultTransitionDuration);
+
+				&:hover {
+					@media (--hover) {
+						color: var(--accentColor);
+
+						transition: none;
+					}
+				}
+			}
+
+			span {
+				position: relative;
+				padding-bottom: 16px;
+
+				&:after {
+					content: '';
+
+					@util position(absolute, auto 0 -1px);
+
+					display: block;
+					height: 1px;
+					background-color: transparent;
+
+					transition: height var(--defaultTransitionDuration);
+				}
+			}
+		}
+
+		input {
+			@util hide-visually;
+
+			&:checked {
+				& + span {
+					color: var(--accentColor);
+
+					&:after {
+						background-color: var(--accentColor);
+					}
+				}
+			}
+
+			&:focus {
+				& + span {
+					outline: -webkit-focus-ring-color auto 5px;
+				}
+			}
+		}
+	}
+}

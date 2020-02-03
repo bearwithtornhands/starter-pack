@@ -1,0 +1,42 @@
+:root {
+	--defaultFont: Roboto, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	--serifFont: 'Times New Roman', serif;
+
+	--light: 300;
+	--normal: 400;
+	--medium: 500;
+	--semibold: 600;
+	--bold: 700;
+	--extraBold: 800;
+	--heavy: 900;
+
+	--accentColor: #0000ff;
+	--primaryColor: #000000;
+	--additionalColor: #cccccc;
+	--alertColor: #ff0000;
+
+	--global-gap-medium: 32px;
+	--global-gap-small: 24px;
+	--column-gap: 24px;
+	--content-bottom-gap-small: 48px;
+	--content-bottom-gap-medium: 80px;
+
+	--defaultTransitionDuration: 250ms;
+}
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--button a, button, label, input;
+@custom-selector :--inline a, button;
+@custom-selector :--input
+	[type='text'],
+	[type='email'],
+	[type='pessword'],
+	[type='date'],
+	[type='number'],
+	[type='search'],
+	[type='tel'],
+	textarea;
+
+@custom-media --desktop (width >= 1264px);
+@custom-media --tablet (width >= 768px);
+@custom-media --hover (hover: hover), (min-width >= 1264);

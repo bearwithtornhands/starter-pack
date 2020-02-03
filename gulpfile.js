@@ -38,7 +38,7 @@ const path = {
 		js: 'src/js/*.js',
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*',
-		icons: 'src/icons/*.svg',
+		icons: 'src/icons/*.svg'
 	},
 	output: {
 		html: 'dist/',
@@ -46,7 +46,7 @@ const path = {
 		js: 'dist/assets/',
 		img: 'dist/img/',
 		fonts: 'dist/fonts/',
-		icons: 'dist/fonts/icons/',
+		icons: 'dist/fonts/icons/'
 	},
 	watch: {
 		html: 'src/html/**/*.html',
@@ -54,7 +54,7 @@ const path = {
 		css: 'src/css/**/*.css',
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*',
-		icons: 'src/icons/**/*.svg',
+		icons: 'src/icons/**/*.svg'
 	},
 	plugins: {
 		del: 'dist/**',
@@ -62,36 +62,36 @@ const path = {
 			html: 'src/html/**/*.html',
 			ignore: [
 				'!src/html/includes/head.html',
-				'!src/html/includes/scripts.html',
-			],
+				'!src/html/includes/scripts.html'
+			]
 		},
 		stylelint: {
 			css: 'src/css/**/*.css',
-			ignore: ['!src/css/templates/*.css'],
+			ignore: ['!src/css/templates/*.css']
 		},
 		iconFont: {
-			css: 'src/css/startkit/',
+			css: 'src/css/startkit/'
 		},
 		critical: {
-			html: 'dist/*.html',
-		},
-	},
+			html: 'dist/*.html'
+		}
+	}
 };
 
 const ccsOptions = {
 	uncss: {
 		html: [path.plugins.uncss.html, ...path.plugins.uncss.ignore],
-		ignore: [/swiper/],
+		ignore: [/swiper/]
 	},
 	preset: {
-		stage: 0,
+		stage: 0
 	},
 	extractMediaQuery: {
 		output: {
 			path: path.output.css,
-			name: '[name]-[query].[ext]',
-		},
-	},
+			name: '[name]-[query].[ext]'
+		}
+	}
 };
 
 function getWebpackConfig() {
@@ -101,7 +101,7 @@ function getWebpackConfig() {
 		mode,
 		devtool: 'source-map',
 		output: {
-			filename: 'main.js',
+			filename: 'main.js'
 		},
 		module: {
 			rules: [
@@ -111,15 +111,14 @@ function getWebpackConfig() {
 					loader: 'babel-loader',
 					query: {
 						presets: ['@babel/env'],
-						plugins: ['@babel/plugin-proposal-class-properties'],
-					},
-				},
-			],
+						plugins: ['@babel/plugin-proposal-class-properties']
+					}
+				}
+			]
 		},
 		externals: {
-			jquery: 'jQuery',
-			swiper: 'Swiper',
-		},
+			jquery: 'jQuery'
+		}
 	};
 }
 
@@ -152,8 +151,8 @@ function css(cb) {
 				combineSelectors,
 				mqpacker,
 				cssNano,
-				extractMediaQuery(ccsOptions.extractMediaQuery),
-			]),
+				extractMediaQuery(ccsOptions.extractMediaQuery)
+			])
 		)
 		// .pipe(
 		// 	stylelint({
@@ -176,7 +175,7 @@ function criticalCSS(cb) {
 		css: [
 			'dist/assets/style.css',
 			'dist/assets/style-min-width-768-px.css',
-			'dist/assets/style-min-width-1264-px.css',
+			'dist/assets/style-min-width-1264-px.css'
 		],
 		// inline: true,
 		extract: false,
@@ -184,17 +183,17 @@ function criticalCSS(cb) {
 		dimensions: [
 			{
 				width: 320,
-				height: 500,
+				height: 500
 			},
 			{
 				width: 768,
-				height: 500,
+				height: 500
 			},
 			{
 				width: 1280,
-				height: 500,
-			},
-		],
+				height: 500
+			}
+		]
 	});
 
 	cb();
@@ -227,11 +226,11 @@ function images(cb) {
 						{
 							removeViewBox: false,
 							collapseGroups: true,
-							removeDimensions: true,
-						},
-					],
-				}),
-			]),
+							removeDimensions: true
+						}
+					]
+				})
+			])
 		)
 		.pipe(gulp.dest(path.output.img))
 		.pipe(connect.reload());
@@ -270,15 +269,15 @@ function iconFont(cb) {
 				prependUnicode: false,
 				formats: ['ttf', 'eot', 'woff', 'woff2'],
 				normalize: true,
-				fontHeight: 1001,
-			}),
+				fontHeight: 1001
+			})
 		)
-		.on('glyphs', (glyphs) => {
+		.on('glyphs', glyphs => {
 			const iconFontCSSOptions = {
 				fontName,
 				className,
 				fontPath: '../fonts/icons/',
-				glyphs: glyphs.map(mapGlyphs),
+				glyphs: glyphs.map(mapGlyphs)
 			};
 
 			gulp
@@ -309,7 +308,7 @@ function connectServer(cb) {
 	connect.server({
 		root: './dist/',
 		port: 9999,
-		livereload: true,
+		livereload: true
 	});
 
 	cb();

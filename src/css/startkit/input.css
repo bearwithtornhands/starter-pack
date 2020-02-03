@@ -1,0 +1,55 @@
+:--input {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 10px 15px;
+	border-radius: 0;
+	border: 1px solid var(--additionalColor);
+	background-color: white;
+	box-shadow: none;
+	appearance: none;
+
+	font: normal normal 14px / 28px var(--defaultFont);
+	color: var(--primaryColor);
+
+	transition: box-shadow var(--defaultTransitionDuration),
+		border-color var(--defaultTransitionDuration);
+
+	&:placeholder,
+	&::-moz-placeholder {
+		color: var(--primaryColor50);
+		color: red;
+		opacity: 1;
+	}
+
+	&:hover {
+		@media (--hover) {
+			border-color: var(--primaryColor);
+
+			transition: none;
+		}
+	}
+
+	&.is-visited {
+		&:invalid {
+			border-color: var(--alertColor);
+			box-shadow: inset 0 0 0 1px var(--alertColor);
+
+			transition: none;
+
+			&:hover {
+				@media (--hover) {
+					border-color: var(--alertColor);
+
+					transition: none;
+				}
+			}
+		}
+	}
+}
+
+textarea {
+	height: 100px;
+	min-height: 100px;
+	resize: vertical;
+}

@@ -1,0 +1,86 @@
+//= ./includes/head.html
+
+<div class="page">
+  //= ./includes/header.html
+
+  <main class="pageContent">
+    <div class="outer">
+      <h1>Hello, world</h1>
+
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui saepe culpa minima inventore facere repellat
+        temporibus odit porro, quam totam quod amet nobis at unde voluptatem quisquam cum! Nostrum, laboriosam.</p>
+
+      <form>
+        <h4>Форма</h4>
+
+        <div class="formRow">
+          <div class="inputField">
+            <input type="email" name="email" placeholder="Электронная почта" required />
+          </div>
+        </div>
+
+        <div class="formRow">
+          <div class="inputField">
+            <div class="select js-select">
+              <select name="theme">
+                <option value="all" selected>Тема</option>
+                <option value="tema1">Первая тема</option>
+                <option value="tema2">Вторая</option>
+                <option value="tema3">Тема третья</option>
+              </select>
+
+              <div class="select__head js-select-head"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="formRow formRow_large">
+          <div class="textareaField">
+            <textarea placeholder="Введите сообщение" name="message" required></textarea>
+          </div>
+        </div>
+
+        <div class="formRow">
+          <div class="radio">
+            <ul class="radio__inner">
+              <li class="radio__item">
+                <label>
+                  <input type="radio" name="test-radio" value="test-1" checked />
+                  <span>Статьи</span>
+                </label>
+              </li>
+              <li class="radio__item">
+                <label>
+                  <input type="radio" name="test-radio" value="test-2" />
+                  <span>Видео</span>
+                </label>
+              </li>
+              <li class="radio__item">
+                <label>
+                  <input type="radio" name="test-radio" value="test-3" />
+                  <span>Книги</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="formRow formRow_large">
+          <label class="checkbox">
+            <input type="checkbox" name="privacy" required />
+            <span>Согласен с&nbsp;<a href="#" target="_blank">Правилами обработки информации</a>.</span>
+          </label>
+        </div>
+
+        <div class="formRow">
+          <button type="submit" class="button"><span>Отправить</span></button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  //= ./includes/footer.html
+</div>
+
+//= ./includes/scripts.html

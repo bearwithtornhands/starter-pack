@@ -1,0 +1,180 @@
+.i-check:before,
+.i-cross:before,
+.i-external:before,
+.i-fb:before,
+.i-left:before,
+.i-loupe:before,
+.i-menu:before,
+.i-right:before,
+.i-tw:before,
+.i-vk:before,
+.i-yt:before {
+  font-family: "iconfont";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+:root {
+  --i-check: {
+      content: "\EA01";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-cross: {
+      content: "\EA02";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-external: {
+      content: "\EA03";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-fb: {
+      content: "\EA04";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-left: {
+      content: "\EA05";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-loupe: {
+      content: "\EA06";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-menu: {
+      content: "\EA07";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-right: {
+      content: "\EA08";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-tw: {
+      content: "\EA09";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-vk: {
+      content: "\EA0A";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-yt: {
+      content: "\EA0B";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  
+}
+
+.i-check:before { content: "\EA01" }
+.i-cross:before { content: "\EA02" }
+.i-external:before { content: "\EA03" }
+.i-fb:before { content: "\EA04" }
+.i-left:before { content: "\EA05" }
+.i-loupe:before { content: "\EA06" }
+.i-menu:before { content: "\EA07" }
+.i-right:before { content: "\EA08" }
+.i-tw:before { content: "\EA09" }
+.i-vk:before { content: "\EA0A" }
+.i-yt:before { content: "\EA0B" }

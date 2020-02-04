@@ -15,8 +15,9 @@
 	--additionalColor: #aaaaaa;
 	--alertColor: #ff0000;
 
-	--global-gap-medium: 32px;
-	--global-gap-small: 24px;
+	--body-width: 992px;
+	--global-gap-medium: 24px;
+	--global-gap-small: 16px;
 	--column-gap: 24px;
 	--content-bottom-gap-small: 48px;
 	--content-bottom-gap-medium: 80px;
@@ -37,6 +38,6 @@
 	[type='tel'],
 	textarea;
 
-@custom-media --desktop (width >= 1264px);
+@custom-media --desktop (width >= 1024px);
 @custom-media --tablet (width >= 768px);
-@custom-media --hover (hover: hover), (min-width >= 1264);
+@custom-media --hover (hover: hover), (min-width >= 1024px);

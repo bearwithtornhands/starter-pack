@@ -15,6 +15,6 @@
 .inputField,
 .textareaField {
 	@media (--tablet) {
-		max-width: 340px;
+		max-width: 380px;
 	}
 }

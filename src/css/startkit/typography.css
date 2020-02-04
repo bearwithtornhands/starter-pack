@@ -27,7 +27,9 @@ ul,
 ol,
 figure,
 blockquote,
-audio {
+audio,
+form,
+hr {
 	& {
 		max-width: 600px;
 	}
@@ -42,40 +44,50 @@ audio {
 }
 
 h1 {
-	margin: 0 0 16px;
+	margin: 48px 0 32px;
 
 	font-size: 2.4em;
-	line-height: 2.8em;
+	line-height: 1.1em;
 	font-weight: var(--bold);
 }
 
 h2 {
+	margin: 32px 0 24px;
+
 	font-size: 2.2em;
-	line-height: 2.6em;
+	line-height: 1.1em;
 	font-weight: var(--bold);
 }
 
 h3 {
+	margin: 32px 0 24px;
+
 	font-size: 2em;
-	line-height: 2.4em;
+	line-height: 1.1em;
 	font-weight: var(--bold);
 }
 
 h4 {
+	margin: 32px 0 16px;
+
 	font-size: 1.8em;
-	line-height: 2.2em;
+	line-height: 1.1em;
 	font-weight: var(--bold);
 }
 
 h5 {
+	margin: 32px 0 16px;
+
 	font-size: 1.6em;
-	line-height: 2em;
+	line-height: 1.1em;
 	font-weight: var(--bold);
 }
 
 h6 {
+	margin: 32px 0 16px;
+
 	font-size: 1.4em;
-	line-height: 1.8em;
+	line-height: 1.1em;
 	font-weight: var(--bold);
 }
 
@@ -166,4 +178,8 @@ ol {
 			transition: none;
 		}
 	}
+}
+
+hr {
+	@util hr(var(--additionalColor), 24px);
 }

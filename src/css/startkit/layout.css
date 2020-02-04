@@ -2,7 +2,7 @@
 	@util center-block;
 
 	box-sizing: content-box;
-	max-width: 1200px;
+	max-width: var(--body-width);
 	padding: 0 var(--global-gap-small);
 
 	@media (--tablet) {

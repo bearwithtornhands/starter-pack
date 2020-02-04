@@ -175,7 +175,7 @@ function criticalCSS(cb) {
 		css: [
 			'dist/assets/style.css',
 			'dist/assets/style-min-width-768-px.css',
-			'dist/assets/style-min-width-1264-px.css'
+			'dist/assets/style-min-width-1024-px.css'
 		],
 		// inline: true,
 		extract: false,

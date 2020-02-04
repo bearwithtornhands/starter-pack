@@ -6,6 +6,6 @@ export default {
 	breakpoints: {
 		mobile: 320,
 		tablet: 768,
-		desktop: 1264
+		desktop: 1024
 	}
 };

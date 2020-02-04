@@ -7,8 +7,19 @@
     <div class="outer">
       <h1>Hello, world</h1>
 
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui saepe culpa minima inventore facere repellat
-        temporibus odit porro, quam totam quod amet nobis at unde voluptatem quisquam cum! Nostrum, laboriosam.</p>
+
+      <p>Сайт рыбатекст поможет <a href="#design">дизайнеру</a>, верстальщику <a href="tel:+79990001122">8 999 000 11
+          22</a>, вебмастеру <a href="mailto:test@example.com">test@example.com</a> сгенерировать несколько
+        абзацев более менее
+        осмысленного <a href="//google.com" target="_blank" rel="nofollow noreferrer">текста рыбы</a> на русском языке,
+        а начинающему оратору отточить навык публичных выступлений в домашних
+        условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется
+        абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более
+        привлекательным и живым для визуально-слухового восприятия.</p>
+
+      <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей
+        недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит
+        любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>
 
       <form>
         <h4>Форма</h4>
@@ -22,8 +33,8 @@
         <div class="formRow">
           <div class="inputField">
             <div class="select js-select">
-              <select name="theme">
-                <option value="all" selected>Тема</option>
+              <select name="theme" required>
+                <option value="" disabled selected>Тема</option>
                 <option value="tema1">Первая тема</option>
                 <option value="tema2">Вторая</option>
                 <option value="tema3">Тема третья</option>
@@ -41,34 +52,35 @@
         </div>
 
         <div class="formRow">
-          <div class="radio">
-            <ul class="radio__inner">
-              <li class="radio__item">
-                <label>
-                  <input type="radio" name="test-radio" value="test-1" checked />
-                  <span>Статьи</span>
-                </label>
-              </li>
-              <li class="radio__item">
-                <label>
-                  <input type="radio" name="test-radio" value="test-2" />
-                  <span>Видео</span>
-                </label>
-              </li>
-              <li class="radio__item">
-                <label>
-                  <input type="radio" name="test-radio" value="test-3" />
-                  <span>Книги</span>
-                </label>
-              </li>
-            </ul>
-          </div>
+          <ul class="row">
+            <li class="col sm-12 md-0">
+              <label class="radio">
+                <input type="radio" name="test-radio" value="test-1" checked />
+                <span>Статьи</span>
+              </label>
+            </li>
+
+            <li class="col sm-12 md-0">
+              <label class="radio">
+                <input type="radio" name="test-radio" value="test-2" />
+                <span>Видео</span>
+              </label>
+            </li>
+
+            <li class="col sm-12 md-0">
+              <label class="radio">
+                <input type="radio" name="test-radio" value="test-3" />
+                <span>Книги</span>
+              </label>
+            </li>
+
+          </ul>
         </div>
 
         <div class="formRow formRow_large">
           <label class="checkbox">
             <input type="checkbox" name="privacy" required />
-            <span>Согласен с&nbsp;<a href="#" target="_blank">Правилами обработки информации</a>.</span>
+            <span>Согласен с <a href="#" target="_blank">правилами обработки информации</a>.</span>
           </label>
         </div>
 

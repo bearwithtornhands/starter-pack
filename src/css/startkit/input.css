@@ -15,10 +15,8 @@
 	transition: box-shadow var(--defaultTransitionDuration),
 		border-color var(--defaultTransitionDuration);
 
-	&:placeholder,
-	&::-moz-placeholder {
-		color: var(--primaryColor50);
-		color: red;
+	&::placeholder {
+		color: var(--additionalColor);
 		opacity: 1;
 	}
 

@@ -5,18 +5,18 @@
 	}
 
 	--mediumFontStyle: {
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 22px;
 	}
 
 	--highFontStyle: {
-		font-size: 18px;
+		font-size: 20px;
 		line-height: 34px;
 	}
 }
 
 html {
-	font: var(--normal) normal 14px/28px var(--defaultFont);
+	font: var(--normal) normal 16px/28px var(--defaultFont);
 	color: var(--primaryColor);
 	-webkit-font-smoothing: antialiased;
 }
@@ -28,6 +28,10 @@ ol,
 figure,
 blockquote,
 audio {
+	& {
+		max-width: 600px;
+	}
+
 	&:first-child {
 		margin-top: 0;
 	}
@@ -38,6 +42,8 @@ audio {
 }
 
 h1 {
+	margin: 0 0 16px;
+
 	font-size: 2.4em;
 	line-height: 2.8em;
 	font-weight: var(--bold);
@@ -85,7 +91,7 @@ p {
 	}
 
 	span {
-		color: var(--primaryColor50);
+		color: var(--additionalColor);
 	}
 
 	b {
@@ -143,9 +149,9 @@ ol {
 }
 
 :--inline {
-	border-bottom: 1px solid var(--primaryColor);
+	border-bottom: 1px solid var(--accentColor);
 
-	color: currentColor;
+	color: var(--accentColor);
 	text-decoration: none;
 
 	transition: color var(--defaultTransitionDuration),

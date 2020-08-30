@@ -1,20 +1,86 @@
 .formRow {
+	& + & {
+		margin-top: 20px;
+	}
+
+	& + &_checkbox {
+		margin-top: 14px;
+	}
+
+	&__head {
+		margin-bottom: 6px;
+
+		font-size: 14px;
+		line-height: 1;
+	}
+
+	&__body {
+	}
+
+	&_row {
+		@media (--tablet) {
+			display: flex;
+			align-items: center;
+		}
+
+		.formRow {
+			&__head {
+				@media (--tablet) {
+					margin-bottom: 0;
+
+					width: 40%;
+				}
+
+				@media (--desktop) {
+					width: 30%;
+				}
+			}
+
+			&__body {
+				@media (--tablet) {
+					margin-left: auto;
+
+					width: 60%;
+				}
+
+				@media (--desktop) {
+					width: 70%;
+				}
+			}
+		}
+	}
+}
+
+.formTools {
 	& {
+		margin: 40px 0 20px;
+
+		@media (--tablet) {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.button,
+	.inputField {
 		margin-bottom: 20px;
+
+		@media (--tablet) {
+			margin-bottom: 0;
+		}
 
 		&:last-child {
 			margin-bottom: 0;
 		}
-	}
-
-	&_large {
-		margin-bottom: 32px;
-	}
-}
-
-.inputField,
-.textareaField {
-	@media (--tablet) {
-		max-width: 380px;
 	}
 }

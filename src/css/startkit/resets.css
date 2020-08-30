@@ -20,9 +20,12 @@ button {
 	color: inherit;
 	font: inherit;
 	line-height: normal;
+	text-align: inherit;
 	-webkit-font-smoothing: inherit;
 	-moz-osx-font-smoothing: inherit;
 	-webkit-appearance: none;
+
+	cursor: pointer;
 
 	&::-moz-focus-inner {
 		border: 0;

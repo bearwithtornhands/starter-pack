@@ -1,6 +1,12 @@
+.i-bkt-down:before,
+.i-bkt-left:before,
+.i-bkt-right:before,
+.i-bkt-top:before,
 .i-check:before,
 .i-cross:before,
 .i-external:before,
+.i-eye-closed:before,
+.i-eye-open:before,
 .i-fb:before,
 .i-left:before,
 .i-loupe:before,
@@ -21,7 +27,7 @@
 }
 
 :root {
-  --i-check: {
+  --i-bkt-down: {
       content: "\EA01";
 
       font-family: "iconfont";
@@ -34,7 +40,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-cross: {
+  --i-bkt-left: {
       content: "\EA02";
 
       font-family: "iconfont";
@@ -47,7 +53,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-external: {
+  --i-bkt-right: {
       content: "\EA03";
 
       font-family: "iconfont";
@@ -60,7 +66,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-fb: {
+  --i-bkt-top: {
       content: "\EA04";
 
       font-family: "iconfont";
@@ -73,7 +79,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-left: {
+  --i-check: {
       content: "\EA05";
 
       font-family: "iconfont";
@@ -86,7 +92,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-loupe: {
+  --i-cross: {
       content: "\EA06";
 
       font-family: "iconfont";
@@ -99,7 +105,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-menu: {
+  --i-external: {
       content: "\EA07";
 
       font-family: "iconfont";
@@ -112,7 +118,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-right: {
+  --i-eye-closed: {
       content: "\EA08";
 
       font-family: "iconfont";
@@ -125,7 +131,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-tw: {
+  --i-eye-open: {
       content: "\EA09";
 
       font-family: "iconfont";
@@ -138,7 +144,7 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-vk: {
+  --i-fb: {
       content: "\EA0A";
 
       font-family: "iconfont";
@@ -151,8 +157,86 @@
       display: inline-block;
       text-decoration: inherit;
     }
-  --i-yt: {
+  --i-left: {
       content: "\EA0B";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-loupe: {
+      content: "\EA0C";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-menu: {
+      content: "\EA0D";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-right: {
+      content: "\EA0E";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-tw: {
+      content: "\EA0F";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-vk: {
+      content: "\EA10";
+
+      font-family: "iconfont";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      text-decoration: inherit;
+    }
+  --i-yt: {
+      content: "\EA11";
 
       font-family: "iconfont";
       font-style: normal;
@@ -167,14 +251,20 @@
   
 }
 
-.i-check:before { content: "\EA01" }
-.i-cross:before { content: "\EA02" }
-.i-external:before { content: "\EA03" }
-.i-fb:before { content: "\EA04" }
-.i-left:before { content: "\EA05" }
-.i-loupe:before { content: "\EA06" }
-.i-menu:before { content: "\EA07" }
-.i-right:before { content: "\EA08" }
-.i-tw:before { content: "\EA09" }
-.i-vk:before { content: "\EA0A" }
-.i-yt:before { content: "\EA0B" }
+.i-bkt-down:before { content: "\EA01" }
+.i-bkt-left:before { content: "\EA02" }
+.i-bkt-right:before { content: "\EA03" }
+.i-bkt-top:before { content: "\EA04" }
+.i-check:before { content: "\EA05" }
+.i-cross:before { content: "\EA06" }
+.i-external:before { content: "\EA07" }
+.i-eye-closed:before { content: "\EA08" }
+.i-eye-open:before { content: "\EA09" }
+.i-fb:before { content: "\EA0A" }
+.i-left:before { content: "\EA0B" }
+.i-loupe:before { content: "\EA0C" }
+.i-menu:before { content: "\EA0D" }
+.i-right:before { content: "\EA0E" }
+.i-tw:before { content: "\EA0F" }
+.i-vk:before { content: "\EA10" }
+.i-yt:before { content: "\EA11" }

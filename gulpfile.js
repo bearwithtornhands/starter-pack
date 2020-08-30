@@ -1,8 +1,7 @@
 const gulp = require('gulp');
 // const gulpif = require('gulp-if');
-const rigger = require('gulp-rigger');
+const fileinclude = require('gulp-file-include');
 // const uglify = require('gulp-uglify');
-// const autoprefixer = require('autoprefixer');
 const cssNano = require('cssnano');
 const connect = require('gulp-connect');
 const del = require('del');
@@ -36,17 +35,18 @@ const path = {
 		html: 'src/html/*.html',
 		css: 'src/css/*.css',
 		js: 'src/js/*.js',
+		libs: 'src/js/libs/*.js',
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*',
-		icons: 'src/icons/*.svg'
+		icons: 'src/icons/*.svg',
 	},
 	output: {
 		html: 'dist/',
-		css: 'dist/assets/',
-		js: 'dist/assets/',
-		img: 'dist/img/',
-		fonts: 'dist/fonts/',
-		icons: 'dist/fonts/icons/'
+		css: 'dist/assets/css/',
+		js: 'dist/assets/js/',
+		img: 'dist/assets/img/',
+		fonts: 'dist/assets/fonts/',
+		icons: 'dist/assets/fonts/icons/',
 	},
 	watch: {
 		html: 'src/html/**/*.html',
@@ -54,7 +54,7 @@ const path = {
 		css: 'src/css/**/*.css',
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*',
-		icons: 'src/icons/**/*.svg'
+		icons: 'src/icons/**/*.svg',
 	},
 	plugins: {
 		del: 'dist/**',
@@ -62,36 +62,36 @@ const path = {
 			html: 'src/html/**/*.html',
 			ignore: [
 				'!src/html/includes/head.html',
-				'!src/html/includes/scripts.html'
-			]
+				'!src/html/includes/scripts.html',
+			],
 		},
 		stylelint: {
 			css: 'src/css/**/*.css',
-			ignore: ['!src/css/templates/*.css']
+			ignore: ['!src/css/templates/*.css'],
 		},
 		iconFont: {
-			css: 'src/css/startkit/'
+			css: 'src/css/startkit/',
 		},
 		critical: {
-			html: 'dist/*.html'
-		}
-	}
+			html: 'dist/*.html',
+		},
+	},
 };
 
 const ccsOptions = {
 	uncss: {
 		html: [path.plugins.uncss.html, ...path.plugins.uncss.ignore],
-		ignore: [/swiper/]
+		ignore: [/swiper/, /pickmeup/, /noUi/],
 	},
 	preset: {
-		stage: 0
+		stage: 0,
 	},
 	extractMediaQuery: {
 		output: {
 			path: path.output.css,
-			name: '[name]-[query].[ext]'
-		}
-	}
+			name: '[name]-[query].[ext]',
+		},
+	},
 };
 
 function getWebpackConfig() {
@@ -101,7 +101,7 @@ function getWebpackConfig() {
 		mode,
 		devtool: 'source-map',
 		output: {
-			filename: 'main.js'
+			filename: 'main.js',
 		},
 		module: {
 			rules: [
@@ -111,14 +111,14 @@ function getWebpackConfig() {
 					loader: 'babel-loader',
 					query: {
 						presets: ['@babel/env'],
-						plugins: ['@babel/plugin-proposal-class-properties']
-					}
-				}
-			]
+						plugins: ['@babel/plugin-proposal-class-properties'],
+					},
+				},
+			],
 		},
 		externals: {
-			jquery: 'jQuery'
-		}
+			jquery: 'jQuery',
+		},
 	};
 }
 
@@ -126,7 +126,7 @@ function html(cb) {
 	gulp
 		.src(path.input.html)
 		.pipe(plumber())
-		.pipe(rigger())
+		.pipe(fileinclude())
 		.pipe(gulp.dest(path.output.html))
 		.pipe(connect.reload());
 
@@ -141,7 +141,7 @@ function css(cb) {
 			postcss([
 				cssImport,
 				cssApply,
-				uncss(ccsOptions.uncss),
+				// uncss(ccsOptions.uncss),
 				cssEach,
 				cssNested,
 				presetEnv(ccsOptions.preset),
@@ -151,7 +151,7 @@ function css(cb) {
 				combineSelectors,
 				mqpacker,
 				cssNano,
-				extractMediaQuery(ccsOptions.extractMediaQuery)
+				extractMediaQuery(ccsOptions.extractMediaQuery),
 			])
 		)
 		// .pipe(
@@ -175,7 +175,7 @@ function criticalCSS(cb) {
 		css: [
 			'dist/assets/style.css',
 			'dist/assets/style-min-width-768-px.css',
-			'dist/assets/style-min-width-1024-px.css'
+			'dist/assets/style-min-width-1024-px.css',
 		],
 		// inline: true,
 		extract: false,
@@ -183,17 +183,17 @@ function criticalCSS(cb) {
 		dimensions: [
 			{
 				width: 320,
-				height: 500
+				height: 500,
 			},
 			{
 				width: 768,
-				height: 500
+				height: 500,
 			},
 			{
 				width: 1280,
-				height: 500
-			}
-		]
+				height: 500,
+			},
+		],
 	});
 
 	cb();
@@ -212,26 +212,35 @@ function js(cb) {
 	cb();
 }
 
+function libs(cb) {
+	gulp
+		.src(path.input.libs)
+		.pipe(gulp.dest(path.output.js))
+		.pipe(connect.reload());
+
+	cb();
+}
+
 function images(cb) {
 	gulp
 		.src(path.input.img)
 		.pipe(newer(path.input.img))
-		.pipe(
-			imagemin([
-				imagemin.gifsicle({ interlaced: true }),
-				imagemin.jpegtran({ progressive: true }),
-				imagemin.optipng({ optimizationLevel: 5 }),
-				imagemin.svgo({
-					plugins: [
-						{
-							removeViewBox: false,
-							collapseGroups: true,
-							removeDimensions: true
-						}
-					]
-				})
-			])
-		)
+		// .pipe(
+		// 	imagemin([
+		// 		imagemin.gifsicle({ interlaced: true }),
+		// 		imagemin.jpegtran({ progressive: true }),
+		// 		imagemin.optipng({ optimizationLevel: 5 }),
+		// 		imagemin.svgo({
+		// 			plugins: [
+		// 				{
+		// 					removeViewBox: false,
+		// 					collapseGroups: true,
+		// 					removeDimensions: true,
+		// 				},
+		// 			],
+		// 		}),
+		// 	])
+		// )
 		.pipe(gulp.dest(path.output.img))
 		.pipe(connect.reload());
 
@@ -269,15 +278,15 @@ function iconFont(cb) {
 				prependUnicode: false,
 				formats: ['ttf', 'eot', 'woff', 'woff2'],
 				normalize: true,
-				fontHeight: 1001
+				fontHeight: 1001,
 			})
 		)
-		.on('glyphs', glyphs => {
+		.on('glyphs', (glyphs) => {
 			const iconFontCSSOptions = {
 				fontName,
 				className,
 				fontPath: '../fonts/icons/',
-				glyphs: glyphs.map(mapGlyphs)
+				glyphs: glyphs.map(mapGlyphs),
 			};
 
 			gulp
@@ -308,7 +317,7 @@ function connectServer(cb) {
 	connect.server({
 		root: './dist/',
 		port: 9999,
-		livereload: true
+		livereload: true,
 	});
 
 	cb();
@@ -322,7 +331,7 @@ function switchToProd(cb) {
 
 const styles = gulp.series(iconFont, css);
 
-const build = gulp.parallel(html, styles, js, images, fonts);
+const build = gulp.parallel(html, styles, js, libs, images, fonts);
 const server = gulp.parallel(watchFiles, connectServer);
 
 const dev = gulp.series(build, server);

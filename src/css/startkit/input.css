@@ -28,7 +28,7 @@
 		}
 	}
 
-	&.is-visited {
+	/* &.is-visited {
 		&:invalid {
 			border-color: var(--alertColor);
 			box-shadow: inset 0 0 0 1px var(--alertColor);
@@ -43,11 +43,85 @@
 				}
 			}
 		}
+	} */
+
+	.inputField.has-error & {
+		border-color: var(--alertColor);
+
+		transition: none;
+	}
+
+	.inputField.is-correctly & {
+		border-color: var(--successColor);
+
+		transition: none;
 	}
 }
 
 textarea {
-	height: 100px;
-	min-height: 100px;
+	height: auto;
+	min-height: 120px;
 	resize: vertical;
+}
+
+.inputField {
+	& {
+		position: relative;
+	}
+
+	&.has-error {
+		margin-bottom: 8px;
+	}
+
+	&.is-correctly {
+	}
+
+	&_pass {
+		button {
+			& {
+				@util position(absolute, 2px 2px 2px null);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0 18px;
+				background-color: #ffffff;
+
+				text-decoration: none;
+			}
+
+			&:before {
+				@apply --i-eye-open;
+				font-size: 13px;
+				color: var(--passIconColor);
+			}
+		}
+
+		&.is-open {
+			button {
+				&:before {
+					@apply --i-eye-closed;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+
+.inputField-error {
+	& {
+		display: none;
+
+		font-size: 14px;
+		line-height: 1;
+		color: var(--alertColor);
+	}
+
+	.inputField.has-error ~ & {
+		display: block;
+	}
+
+	.inputField_checkbox ~ & {
+		padding-left: 25px;
+	}
 }

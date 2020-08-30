@@ -1,0 +1,56 @@
+:root {
+	--popupBgColor: #00000080;
+}
+
+html {
+	&.is-st {
+		overflow: hidden;
+
+		.page {
+			@util position(fixed, 0 null null 0);
+
+			width: 100%;
+
+			@media (--desktop) {
+				position: static;
+				top: auto;
+				left: auto;
+
+				width: auto;
+			}
+		}
+	}
+}
+
+.popup {
+	& {
+		@util position(fixed, 0 null null 0);
+
+		visibility: hidden;
+		opacity: 0;
+		transform: translate(-100%, -100%);
+
+		overflow: auto;
+		width: 100%;
+		height: calc(var(--vh, 1vh) * 100);
+		padding: 30px 0;
+		background-color: var(--popupBgColor);
+	}
+
+	&__box {
+		padding: 20px 0 45px;
+		background-color: #ffffff;
+
+		@media (--tablet) {
+			padding: 45px 0;
+		}
+	}
+
+	&.is-open {
+		z-index: 10;
+
+		visibility: visible;
+		opacity: 1;
+		transform: none;
+	}
+}

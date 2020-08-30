@@ -1,0 +1,132 @@
+.pickmeup {
+	position: absolute;
+
+	display: flex;
+	justify-content: center;
+	border: 1px solid var(--additionalPaleColor);
+	border-top: 0;
+	padding: 10px 0;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	background: #ffffff;
+
+	touch-action: manipulation;
+}
+/* .pickmeup * {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+} */
+.pickmeup.pmu-flat {
+	position: relative;
+}
+.pickmeup.pmu-hidden {
+	display: none;
+}
+.pickmeup .pmu-instance {
+	display: inline-block;
+	width: 244px;
+
+	text-align: center;
+}
+.pickmeup .pmu-instance .pmu-button {
+	color: var(--primaryColor);
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+}
+.pickmeup .pmu-instance .pmu-today {
+}
+.pickmeup .pmu-instance .pmu-not-in-month {
+	color: var(--additionalColor);
+}
+.pickmeup .pmu-instance .pmu-disabled,
+.pickmeup .pmu-instance .pmu-disabled:hover {
+	cursor: default;
+}
+.pickmeup .pmu-instance .pmu-selected {
+	background-color: var(--accentColor);
+	color: #ffffff;
+}
+.pickmeup .pmu-instance .pmu-not-in-month.pmu-selected {
+	background: #17384d;
+}
+.pickmeup .pmu-instance nav {
+	display: flex;
+	justify-content: space-between;
+
+	line-height: 2em;
+}
+.pickmeup .pmu-instance nav *:first-child :hover {
+	color: #88c5eb;
+}
+.pickmeup .pmu-instance nav .pmu-prev,
+.pickmeup .pmu-instance nav .pmu-next {
+	display: none;
+	width: 28px;
+	height: 2em;
+}
+.pickmeup .pmu-instance nav .pmu-prev:before,
+.pickmeup .pmu-instance nav .pmu-next:before {
+	font-size: 10px;
+}
+.pickmeup .pmu-instance nav .pmu-prev:before {
+	@apply --i-bkt-left;
+}
+.pickmeup .pmu-instance nav .pmu-next:before {
+	@apply --i-bkt-right;
+}
+.pickmeup .pmu-instance nav .pmu-month {
+	width: 14em;
+}
+.pickmeup .pmu-instance .pmu-years,
+.pickmeup .pmu-instance .pmu-months {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.pickmeup .pmu-instance .pmu-years *,
+.pickmeup .pmu-instance .pmu-months * {
+	width: 3.5em;
+
+	line-height: 3.6em;
+}
+
+.pickmeup .pmu-instance .pmu-day-of-week,
+.pickmeup .pmu-instance .pmu-days {
+	margin: 0 -4px;
+}
+.pickmeup .pmu-instance .pmu-day-of-week {
+	margin-bottom: 2px;
+
+	color: var(--additionalPaleColor);
+	text-transform: lowercase;
+	cursor: default;
+}
+.pickmeup .pmu-instance .pmu-day-of-week *,
+.pickmeup .pmu-instance .pmu-days * {
+	margin: 0 4px;
+
+	display: inline-block;
+	width: 28px;
+	padding: 8px 0 6px;
+
+	line-height: 1;
+}
+.pickmeup .pmu-instance:first-child .pmu-prev,
+.pickmeup .pmu-instance:last-child .pmu-next {
+	display: block;
+}
+.pickmeup .pmu-instance:first-child .pmu-month,
+.pickmeup .pmu-instance:last-child .pmu-month {
+	width: 13em;
+}
+.pickmeup .pmu-instance:first-child:last-child .pmu-month {
+	width: 12em;
+}
+.pickmeup:not(.pmu-view-days) .pmu-days,
+.pickmeup:not(.pmu-view-days) .pmu-day-of-week,
+.pickmeup:not(.pmu-view-months) .pmu-months,
+.pickmeup:not(.pmu-view-years) .pmu-years {
+	display: none;
+}

@@ -1,4 +1,9 @@
 :root {
+	--defaultFontStyle: {
+		font-size: 16px;
+		line-height: 28px;
+	}
+
 	--secondaryFontStyle: {
 		font-size: 12px;
 		line-height: 24px;
@@ -25,11 +30,11 @@ html {
 p,
 ul,
 ol,
+li,
 figure,
 blockquote,
 audio,
-form,
-hr {
+form {
 	& {
 		max-width: 600px;
 	}
@@ -107,12 +112,7 @@ p {
 	}
 
 	b {
-		font-weight: var(--medium);
-	}
-
-	& + ul,
-	& + ol {
-		margin-top: -12px;
+		font-weight: var(--bold);
 	}
 }
 
@@ -161,25 +161,17 @@ ol {
 }
 
 :--inline {
-	border-bottom: 1px solid var(--accentColor);
-
 	color: var(--accentColor);
-	text-decoration: none;
+	text-decoration: underline;
 
-	transition: color var(--defaultTransitionDuration),
-		border-color var(--defaultTransitionDuration),
-		background-color var(--defaultTransitionDuration);
+	transition: color var(--defaultTransitionDuration);
 
 	&:hover {
 		@media (--hover) {
-			border-color: transparent;
 			color: var(--accentColor);
+			text-decoration: none;
 
 			transition: none;
 		}
 	}
-}
-
-hr {
-	@util hr(var(--additionalColor), 24px);
 }

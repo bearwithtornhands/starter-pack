@@ -1,13 +1,11 @@
 import Select from '../classes/Select';
 
 export default () => {
-	const $select = $('.js-select');
+	const $selects = $('.js-select');
 
-	if (!$select.length) {
-		return;
-	}
+	if ($selects.length === 0) return;
 
-	$select.each((index, select) => {
-		new Select($(select)).init();
+	$selects.each((index, select) => {
+		new Select(select).init();
 	});
 };

@@ -36,7 +36,7 @@
 			border: 1px solid var(--additionalColor);
 
 			@apply --i-check;
-			font-size: 10.35px;
+			font-size: 10px;
 			color: transparent;
 
 			display: flex;
@@ -55,6 +55,14 @@
 
 					transition: none;
 				}
+			}
+		}
+	}
+
+	.inputField.has-error & {
+		span {
+			&:before {
+				border-color: var(--alertColor);
 			}
 		}
 	}

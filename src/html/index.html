@@ -43,6 +43,7 @@
           <div class="inputField">
             <div class="select js-select">
               <select name="theme" required>
+                <option value="" selected disabled>Выберите тему</option>
                 <option value="tema1">Первая тема</option>
                 <option value="tema2">Вторая</option>
                 <option value="tema3">Тема третья</option>
@@ -55,18 +56,54 @@
               <div class="select__body js-select-body">
                 <ul>
                   <li>
-                    <button type="button" data-value="tema1" disabled>Первая тема</button>
+                    <button type="button" data-value="" disabled>Выберите тему</button>
                   </li>
 
                   <li>
-                    <button type="button" data-value="tema2" disabled>Вторая</button>
+                    <button type="button" data-value="tema1">Первая тема</button>
                   </li>
 
                   <li>
-                    <button type="button" data-value="tema3" disabled>Тема третья</button>
+                    <button type="button" data-value="tema2">Вторая</button>
+                  </li>
+
+                  <li>
+                    <button type="button" data-value="tema3">Тема третья</button>
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="formRow">
+          <div class="inputField">
+            <div class="select select_predictive js-predictive-select">
+              <select name="theme" tabindex="-1">
+                <option value="msk" selected>Москва</option>
+                <option value="spb">Питер</option>
+                <option value="vlg">Волгоград</option>
+                <option value="sam">Самара</option>
+                <option value="rnd">Ростов-на-Дону</option>
+                <option value="arh">Архангельск</option>
+                <option value="kld">Каллининград</option>
+              </select>
+
+              <div class="select__head js-select-head">
+                <label for="town"></label>
+
+                <input type="text" id="town" class="js-select-search" />
+              </div>
+
+              <ul class="select__body js-select-body">
+                <li><button type="button" data-value="msk">Москва</button></li>
+                <li><button type="button" data-value="spb">Питер</button></li>
+                <li><button type="button" data-value="vlg">Волгоград</button></li>
+                <li><button type="button" data-value="sam">Самара</button></li>
+                <li><button type="button" data-value="rnd">Ростов-на-Дону</button></li>
+                <li><button type="button" data-value="arh">Архангельск</button></li>
+                <li><button type="button" data-value="kld">Каллининград</button></li>
+              </ul>
             </div>
           </div>
         </div>

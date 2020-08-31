@@ -11,7 +11,7 @@ export default class Select {
 			INIT: 'is-init',
 		};
 
-		this.classNames = Object.assign({}, defaultClassNames, classNames);
+		this.classNames = { ...defaultClassNames, ...classNames };
 
 		const { HEAD, BODY } = this.classNames;
 
@@ -31,12 +31,13 @@ export default class Select {
 			this.$select.length === 0 ||
 			this.$toggler.length === 0 ||
 			this.$buttons.length === 0
-		)
+		) {
 			return;
+		}
 
 		this.setHeadText();
 		this.setContainerState();
-		this.setSelectedOption();
+		this.setSelectedButton();
 
 		this.listenSelectChange();
 		this.listenTogglerClick();
@@ -49,7 +50,7 @@ export default class Select {
 		this.$select.on('change', () => {
 			this.setHeadText();
 			this.setContainerState();
-			this.setSelectedOption();
+			this.setSelectedButton();
 		});
 	}
 
@@ -89,7 +90,7 @@ export default class Select {
 		this.$toggler.html(this.getActiveButton().html());
 	}
 
-	setSelectedOption() {
+	setSelectedButton() {
 		const { BODY } = this.classNames;
 
 		this.$buttons.prop('disabled', false);
@@ -104,7 +105,9 @@ export default class Select {
 
 	getActiveButton() {
 		return $(
-			`.${this.classNames.BODY} button[data-value="${this.$select.val()}"]`,
+			`.${this.classNames.BODY} button[data-value="${
+				this.$select.val() || ''
+			}"]`,
 			this.$container
 		);
 	}

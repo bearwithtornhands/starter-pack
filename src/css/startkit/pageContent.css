@@ -1,18 +1,9 @@
 .pageContent {
 	& {
-		overflow: hidden;
-		padding: 48px 0 80px;
+		margin-bottom: 44px;
 
 		@media (--tablet) {
-			padding: 96px 0 128px;
-		}
-	}
-
-	&_null {
-		padding-top: 0;
-
-		@media (--tablet) {
-			padding-top: 0;
+			margin-bottom: 120px;
 		}
 	}
 }

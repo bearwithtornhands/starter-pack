@@ -7,6 +7,10 @@ img {
 button,
 label {
 	cursor: pointer;
+
+	&:disabled {
+		cursor: default;
+	}
 }
 
 button {
@@ -19,13 +23,11 @@ button {
 
 	color: inherit;
 	font: inherit;
-	line-height: normal;
+	line-height: inherit;
 	text-align: inherit;
 	-webkit-font-smoothing: inherit;
 	-moz-osx-font-smoothing: inherit;
 	-webkit-appearance: none;
-
-	cursor: pointer;
 
 	&::-moz-focus-inner {
 		border: 0;
@@ -39,7 +41,14 @@ audio {
 }
 
 table {
-	width: 100%;
 	border-collapse: collapse;
+	border: 0;
+	border-spacing: 0;
+}
+
+fieldset {
+	margin: 0;
+
+	padding: 0;
 	border: 0;
 }

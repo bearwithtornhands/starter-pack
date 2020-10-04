@@ -1,13 +1,17 @@
 import Inputmask from 'inputmask';
 
 export default () => {
-	const $phone = $('.js-phone');
-	const $email = $('.js-email');
+	const $phone = $('[type="tel"], .js-mask-tel');
+	// const $email = $('.js-email');
 
 	if ($phone.length === 0) return;
 
 	$phone.each((index, phone) => {
-		Inputmask('+7 999 999 99 99').mask(phone);
+		Inputmask({
+			mask: '+7 999 999 99 99',
+			showMaskOnHover: false,
+			showMaskOnFocus: true,
+		}).mask(phone);
 	});
 
 	// $email.each((index, email) => {

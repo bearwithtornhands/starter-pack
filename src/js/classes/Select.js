@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import app from '../helpers/app';
+
 export default class Select {
 	constructor(containerDOM, classNames = {}) {
 		const defaultClassNames = {
@@ -7,7 +9,6 @@ export default class Select {
 			HEAD: 'js-select-head',
 			BODY: 'js-select-body',
 			OPEN: 'is-open',
-			ACTIVE: 'is-active',
 			INIT: 'is-init',
 		};
 
@@ -27,16 +28,11 @@ export default class Select {
 	}
 
 	init() {
-		if (
-			this.$select.length === 0 ||
-			this.$toggler.length === 0 ||
-			this.$buttons.length === 0
-		) {
+		if (this.$select.length === 0 || this.$toggler.length === 0) {
 			return;
 		}
 
 		this.setHeadText();
-		this.setContainerState();
 		this.setSelectedButton();
 
 		this.listenSelectChange();
@@ -49,7 +45,6 @@ export default class Select {
 	listenSelectChange() {
 		this.$select.on('change', () => {
 			this.setHeadText();
-			this.setContainerState();
 			this.setSelectedButton();
 		});
 	}
@@ -60,10 +55,8 @@ export default class Select {
 		this.$toggler.on('click', () => {
 			if (this.$container.hasClass(OPEN)) {
 				this.close();
-				this.unlistenClickOutside();
 			} else {
 				this.open();
-				this.listenClickOutside();
 			}
 		});
 	}
@@ -72,35 +65,32 @@ export default class Select {
 		const { BODY, OPEN } = this.classNames;
 
 		this.$buttons.on('click', (event) => {
-			this.$select.val(event.currentTarget.dataset.value).trigger('change');
+			this.$select
+				.val(event.currentTarget.dataset.value)
+				.trigger('change');
 			this.close();
-			this.unlistenClickOutside();
 		});
 	}
 
 	listenClickOutside() {
-		$(document).on('click', this.handleClickOutside);
+		app.dom.$document.on('click', this.handleClickOutside);
 	}
 
 	unlistenClickOutside() {
-		$(document).off('click', this.handleClickOutside);
+		app.dom.$document.off('click', this.handleClickOutside);
 	}
 
 	setHeadText() {
-		this.$toggler.html(this.getActiveButton().html());
+		this.$toggler.html(this.getSelectedOption().text());
 	}
 
 	setSelectedButton() {
-		const { BODY } = this.classNames;
-
-		this.$buttons.prop('disabled', false);
-		this.getActiveButton().prop('disabled', true);
-	}
-
-	setContainerState() {
-		const isDefaultValue = $('option:selected', this.$select).index() === 0;
-
-		this.$container.toggleClass(this.classNames.ACTIVE, !isDefaultValue);
+		if (this.$buttons.length !== 0) {
+			this.$buttons
+				.filter((index, button) => $(button).attr('data-value') !== '')
+				.prop('disabled', false);
+			this.getActiveButton().prop('disabled', true);
+		}
 	}
 
 	getActiveButton() {
@@ -112,18 +102,23 @@ export default class Select {
 		);
 	}
 
+	getSelectedOption() {
+		return $(':selected', this.$select);
+	}
+
 	handleClickOutside = (event) => {
 		if ($(event.target).closest(this.$container).length === 0) {
 			this.close();
-			this.unlistenClickOutside();
 		}
 	};
 
 	open() {
 		this.$container.addClass(this.classNames.OPEN);
+		this.listenClickOutside();
 	}
 
 	close() {
 		this.$container.removeClass(this.classNames.OPEN);
+		this.unlistenClickOutside();
 	}
 }

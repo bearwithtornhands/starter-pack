@@ -7,47 +7,14 @@
 		margin-top: 14px;
 	}
 
-	&__head {
-		margin-bottom: 6px;
-
-		font-size: 14px;
-		line-height: 1;
+	.row {
+		margin: -35px -15px 0;
 	}
 
-	&__body {
-	}
+	.col {
+		margin-top: 35px;
 
-	&_row {
-		@media (--tablet) {
-			display: flex;
-			align-items: center;
-		}
-
-		.formRow {
-			&__head {
-				@media (--tablet) {
-					margin-bottom: 0;
-
-					width: 40%;
-				}
-
-				@media (--desktop) {
-					width: 30%;
-				}
-			}
-
-			&__body {
-				@media (--tablet) {
-					margin-left: auto;
-
-					width: 60%;
-				}
-
-				@media (--desktop) {
-					width: 70%;
-				}
-			}
-		}
+		padding: 0 15px;
 	}
 }
 

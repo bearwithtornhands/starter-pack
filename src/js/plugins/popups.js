@@ -1,9 +1,5 @@
-import Popups from '../classes/popups';
+import PopupHub from '../classes/PopupHub';
 
 export default () => {
-	const $popups = $('.js-popup');
-
-	if ($popups.length === 0) return;
-
-	new Popups().init();
+	new PopupHub().init();
 };

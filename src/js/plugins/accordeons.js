@@ -1,4 +1,4 @@
-import Аccordeon from '../classes/Аccordeon';
+import Accordeon from '../classes/Accordeon';
 
 export default () => {
 	const $accordeons = $('.js-accordeon');
@@ -6,6 +6,6 @@ export default () => {
 	if ($accordeons.length === 0) return;
 
 	$accordeons.each((index, accordeon) => {
-		new Аccordeon(accordeon).init();
+		new Accordeon(accordeon).init();
 	});
 };

@@ -32,8 +32,8 @@ export default class PopupHub {
 				const name =
 					event.currentTarget.dataset[this.attributeNames.TOGGLE];
 
-				if (Popup.isExist(name) === true) {
-					this.open(name);
+				if (Popup.isInit(name) === true) {
+					this.open(Popup.getContainer(name));
 				}
 			}
 		);
@@ -45,12 +45,12 @@ export default class PopupHub {
 		});
 	}
 
-	open(name) {
-		const nextPopup = new Popup(name);
+	open($popup) {
+		const popup = $popup.data('popup');
 
 		this.closeLastPopup();
-		nextPopup.open();
-		this.addToHistory(nextPopup);
+		popup.open();
+		this.addToHistory(popup.getName());
 	}
 
 	close() {
@@ -58,24 +58,28 @@ export default class PopupHub {
 		this.openLastPopup();
 	}
 
-	getLastPopup() {
-		return this.state.history[this.state.history.length - 1];
+	getLastPopupName() {
+		const { history } = this.state;
+
+		return history[history.length - 1];
 	}
 
 	openLastPopup() {
-		const $lastPopup = this.getLastPopup();
+		if (this.state.history.length === 0) {
+			return;
+		}
 
-		if ($lastPopup === undefined) return;
-
-		return $lastPopup.open();
+		return Popup.getContainer(this.getLastPopupName()).data('popup').open();
 	}
 
 	closeLastPopup() {
-		const $lastPopup = this.getLastPopup();
+		if (this.state.history.length === 0) {
+			return;
+		}
 
-		if ($lastPopup === undefined) return;
-
-		return $lastPopup.close();
+		return Popup.getContainer(this.getLastPopupName())
+			.data('popup')
+			.close();
 	}
 
 	addToHistory(name) {

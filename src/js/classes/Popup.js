@@ -4,7 +4,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import app from '../helpers/app';
 
 export default class Popup {
-	constructor(name, classNames) {
+	constructor(containerDOM, classNames) {
 		this.classNames = {
 			CONTAINER: 'js-popup',
 			BODY: 'js-popup-body',
@@ -20,11 +20,14 @@ export default class Popup {
 			OPEN: 'is-open',
 		};
 
-		this.name = name;
-		this.$container = $(
-			`.${this.classNames.CONTAINER}[data-${this.attributeNames.NAME}="${this.name}"]`
-		);
+		this.$container = $(containerDOM);
 		this.$body = $(`.${this.classNames.BODY}`, this.$container);
+	}
+
+	init() {
+		if (this.$container.length === 0) return;
+
+		this.$container.data('popup', this);
 	}
 
 	listenClickClose() {
@@ -93,9 +96,18 @@ export default class Popup {
 		this.unlistenClickClose();
 		this.unlistenClickOutside();
 		this.unlistenPressEsc();
+		// app.dom.$document.trigger('popup:close');
 	}
 
-	static isExist(name) {
-		return $(`.js-popup[data-name="${name}"]`).length !== 0;
+	getName() {
+		return this.$container.data(`${this.attributeNames.NAME}`);
+	}
+
+	static getContainer(name) {
+		return $(`.js-popup[data-name="${name}"]`);
+	}
+
+	static isInit(name) {
+		return $(`.js-popup[data-name="${name}"]`).data('popup') !== undefined;
 	}
 }
